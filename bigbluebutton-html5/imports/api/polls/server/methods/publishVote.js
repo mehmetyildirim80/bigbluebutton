@@ -47,19 +47,6 @@ export default function publishVote(pollId, pollAnswerId) {
       + `pollId: ${pollId}!)`);
   };
  
-  const selectorX = {
-    userId: requesterUserId,
-  };
-
-  const user = Users.findOne(selectorX);
-
-  const result = HTTP.call('POST', 'http://lovetoread.site/api/Behaviour/TriggerBehaviour', {
-        data: { UserId:user.name, BehaviourKey:'response_survey'}
-      });
-
-   Logger.info('-------------result' + result.content);
-   Logger.info('-----------------USer:' + user.name);
-  
   
   Polls.update(selector, modifier, cb);
 
